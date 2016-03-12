@@ -66,6 +66,7 @@ var drawMap = function() {
 			})
 			.attr("stroke", "#fff")
 			.attr("r", function(d, i) {
+				console.log("count " +  d.value["count"]);
 				if (d.value["count"] < 10) {
 					return radius;
 				}	
@@ -79,9 +80,10 @@ var drawMap = function() {
 				return (d.value["count"]/radius);
 			}); 
 			function getCountryStats(d, i) {
-				for (index in newdata) {
-					if (d == newdata[index][2]) {
-						if (newdata[index][5] == "Certified") {
+				var cnt;
+				for (cnt in newdata) {
+					if (d == newdata[cnt][2]) {
+						if (newdata[cnt][5] == "Certified") {
 							green[i]++;
 						} else {
 							red[i]++;
